@@ -16,9 +16,9 @@ export default ListGoal;
 
 const styles = StyleSheet.create({
     itemListContainer: {
-        borderRadius: 6,
-        backgroundColor: '#4c0164',
-        margin: 8,
+        borderRadius: 10,
+        backgroundColor: '#64013b',
+        margin: 8,  
         padding: 4
     }
 })
