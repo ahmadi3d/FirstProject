@@ -1,20 +1,45 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useState } from 'react';
+import { StyleSheet, View } from 'react-native';
+
+import InputGoal from './components/InputGoal/InputGoal';
+import ListGoal from './components/ListGoal/ListGoal';
 
 export default function App() {
+  const [list, setList] = useState([])
+  const [inputValue, setInputValue] = useState('')
+
+  const onButtonClick = () => {
+    if (inputValue !== '') {
+      setList((oldList) => [...oldList, { text: inputValue, id: Math.random().toString() + inputValue }])
+    }
+  }
+
+  const onInputChange = (newValue) => {
+    setInputValue(newValue)
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View style={styles.appContainer}>
+      <View style={styles.inputContainer}>
+        <InputGoal onClick={onButtonClick} onChange={onInputChange} value={inputValue} />
+      </View>
+      <View style={styles.listContainer}>
+        <ListGoal data={list} />
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  appContainer: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    padding: 4,
+    paddingTop: 20,
+  },
+  inputContainer: {
+    flex: 1,    
+  },
+  listContainer: {
+    flex: 5
   },
 });
