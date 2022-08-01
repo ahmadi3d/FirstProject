@@ -2,7 +2,7 @@ import { StyleSheet, TextInput, View, Button } from 'react-native';
 
 const InputGoal = ({ onClick, onChange, value }) => {
     return <View style={styles.inputContainer}>
-        <TextInput style={{ width: '80%' }} placeholder='Please write a new item ...' onChangeText={onChange} value={value} />
+        <TextInput style={{ width: '20%' }} placeholder='Please write a new item ...' onChangeText={onChange} value={value} />
         <Button title="Add" onPress={onClick} />
     </View>
 }
